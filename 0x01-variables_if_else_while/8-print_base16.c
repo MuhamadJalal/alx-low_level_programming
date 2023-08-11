@@ -10,8 +10,11 @@
 int main(void)
 {
 int c;
-for (c = 0; c < 16; c++)
+char s;
+for (c = 0; c < 10; c++)
 putchar(48 + c);
+for (s = 'a'; s <= 'f'; s++)
+putchar(s);
 putchar('\n');
 return (0);
 }
