@@ -13,7 +13,9 @@ int c;
 for (c = 0; c < 10; c++)
 {
 putchar(48 + c);
+if (c < 9)
 putchar(',');
+if (c < 9)
 putchar(' ');
 }
 putchar('\n');
