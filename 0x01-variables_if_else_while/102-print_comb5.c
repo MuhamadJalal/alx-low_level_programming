@@ -18,9 +18,9 @@ putchar('0' + c);
 putchar('0' + c);
 putchar(' ');
 if (c != i)
-putchar('0' + c);
+putchar((c % 10) + '0');
 if (c != i)
-putchar('0' + i);
+putchar((i % 10) + '0');
 if (c != i)
 if (c != 98)
 putchar(',');
