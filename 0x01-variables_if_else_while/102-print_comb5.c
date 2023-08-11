@@ -15,6 +15,9 @@ for (c = 0; c < 100; c++)
 for (i = c; i < 100; i++)
 {
 putchar(48 + c);
+putchar(48 + c);
+putchar(' ');
+putchar(48 + c);
 putchar(48 + i);
 if (c != i)
 if (c != 98)
