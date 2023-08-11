@@ -23,10 +23,6 @@ putchar(',');
 if (i < 9)
 putchar(' ');
 }
-if (c < 9)
-putchar(',');
-if (c < 9)
-putchar(' ');
 }
 putchar('\n');
 return (0);
