@@ -9,9 +9,8 @@
 */
 int main(void)
 {
-int i;
-char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
-for (i = 0; i > 27; i++)
-putchar(alphabet[i]);
+char c;
+for (c = 'a'; c <= 'z'; c++)
+putchar(c);
 return (0);
 }
