@@ -17,7 +17,9 @@ for (i = c; i < 100; i++)
 putchar('0' + c);
 putchar('0' + c);
 putchar(' ');
+if (c != i)
 putchar('0' + c);
+if (c != i)
 putchar('0' + i);
 if (c != i)
 if (c != 98)
