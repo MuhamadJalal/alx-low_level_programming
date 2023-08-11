@@ -19,10 +19,10 @@ putchar(48 + c);
 if (c != i)
 putchar(48 + i);
 if (c != i)
-if (c != 8 && i != 9)
+if (c != 8)
 putchar(',');
 if (c != i)
-if (c != 8 && i != 9)
+if (c != 8)
 putchar(' ');
 }
 }
