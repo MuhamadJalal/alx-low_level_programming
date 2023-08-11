@@ -16,16 +16,16 @@ for (i = c; i < 10; i++)
 {
 for (y = i; y < 10; y++)
 {
-if (c != i && c != y)
+if (c != i && c != y && i != y)
 putchar(48 + c);
-if (c != i && c != y)
+if (c != i && c != y && i != y)
 putchar(48 + i);
-if (c != i && c != y)
+if (c != i && c != y && i != y)
 putchar(48 + y);
-if (c != i && c != y)
+if (c != i && c != y && i != y)
 if (c != 7)
 putchar(',');
-if (c != i && c != y)
+if (c != i && c != y && i != y)
 if (c != 7)
 putchar(' ');
 }
