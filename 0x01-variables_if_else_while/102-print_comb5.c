@@ -10,22 +10,18 @@
 int main(void)
 {
 int c, i;
-for (c = 0; c < 100; c++)
+for (c = 0; c < 98; c++)
 {
-for (i = c; i < 100; i++)
+for (i = c + 1; i < 99; i++)
 {
-putchar('0' + c);
-putchar('0' + c);
-putchar(' ');
-if (c != i)
+putchar((c / 10) + '0');
 putchar((c % 10) + '0');
-if (c != i)
+putchar(' ');
+putchar((i / 10) + '0');
 putchar((i % 10) + '0');
-if (c != i)
-if (c != 98)
+if (c == 89 && i == 99)
+continue;
 putchar(',');
-if (c != i)
-if (c != 98)
 putchar(' ');
 }
 }
