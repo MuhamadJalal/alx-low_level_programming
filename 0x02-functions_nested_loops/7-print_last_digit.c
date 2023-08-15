@@ -10,16 +10,15 @@
 */
 int print_sign(int n)
 {
+int i;
 if (n > 0)
 {
-_putchar((n & 10) + '0');
-return ((n & 10) + '0');
+i = n & 10;
 }
 else if (n < 0)
 {
-_putchar(((-n) & 10) + '0');
-return (((-n) & 10) + '0');
+i = (-n) & 10;
 }
-_putchar('0');
-return (0);
+_putchar(a + '0');
+return (a);
 }
