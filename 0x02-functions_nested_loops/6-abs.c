@@ -12,15 +12,11 @@ int _abs(int n)
 {
 if (n > 0)
 {
-_putchar((n % 10) + '0');
-return (0);
+return (n);
 }
 else if (n < 0)
 {
-  double d = n * (-1);
-_putchar((d % 10) + '0');
-return (0);
+return (-n);
 }
-_putchar('0');
 return (0);
 }
