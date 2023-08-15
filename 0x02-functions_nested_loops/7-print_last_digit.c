@@ -19,6 +19,6 @@ else if (n < 0)
 {
 i = (-n) & 10;
 }
-_putchar(a + '0');
-return (a);
+_putchar(i + '0');
+return (i);
 }
