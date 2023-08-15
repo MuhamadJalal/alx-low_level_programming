@@ -4,7 +4,6 @@
 * jack_bauer - entry point
 *
 * Description: This function checks for lowercase character.
-* @n: the charater to check
 *
 * Return: void
 */
