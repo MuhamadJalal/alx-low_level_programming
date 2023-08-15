@@ -6,9 +6,9 @@
 * Description: This function checks for lowercase character.
 * @n: the charater to check
 *
-* Return: last digit
+* Return: void
 */
-int jack_bauer(int n)
+void jack_bauer(void)
 {
   int h, m;
 h = 0;
