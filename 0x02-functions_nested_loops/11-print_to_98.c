@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -14,7 +15,7 @@ if (n <= 98)
 {
 while (n <= 98)
 {
-_putchar((n % 10) + '0');
+printf("%d", n);
 if (n < 98)
 {
 _putchar(',');
@@ -27,7 +28,7 @@ else if (n > 98)
 {
 while (n >= 98)
 {
-_putchar((n % 10) + '0');
+printf("%d", n);
 if (n > 98)
 {
 _putchar(',');
