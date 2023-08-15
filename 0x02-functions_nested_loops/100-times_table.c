@@ -31,6 +31,7 @@ else if (k >= n)
 {
 _putchar(',');
 _putchar(' ');
+_putchar(' ');
 _putchar((k % 10) + '0');
 }
 }
