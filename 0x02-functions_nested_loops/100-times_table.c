@@ -26,13 +26,11 @@ _putchar(',');
 _putchar(' ');
 _putchar(' ');
 _putchar(' ');
-_putchar(' ');
 _putchar(k + '0');
 }
 else if (k >= n)
 {
 _putchar(',');
-_putchar(' ');
 _putchar(' ');
 _putchar(' ');
 _putchar(' ');
