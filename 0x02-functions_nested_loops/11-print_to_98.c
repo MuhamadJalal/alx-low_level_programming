@@ -14,7 +14,7 @@ if (n <= 98)
 {
 while (n <= 98)
 {
-_putchar((n / 10) + '0');
+_putchar((n % 10) + '0');
 if (n < 98)
 {
 _putchar(',');
@@ -27,7 +27,7 @@ else if (n > 98)
 {
 while (n >= 98)
 {
-_putchar((n / 10) + '0');
+_putchar((n % 10) + '0');
 if (n > 98)
 {
 _putchar(',');
