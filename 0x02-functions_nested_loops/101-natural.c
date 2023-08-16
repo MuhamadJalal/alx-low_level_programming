@@ -1,0 +1,26 @@
+#include "main.h"
+/**
+* main - Entry point
+*
+* Return: Always 0 (Success)
+*/
+int main(void)
+{
+int n3, n5, i, sum;
+n3 = 0;
+n5 = 0;
+sum = 0;
+for (i = 0; i < 1024; i++)
+{
+if ((i % 3) == 0)
+{
+sum += i;
+}
+else if ((i % 5) == 0)
+{
+sum += i;
+}
+}
+printf("%lu\n", sum);
+return (0);
+}
