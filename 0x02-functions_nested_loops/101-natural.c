@@ -6,9 +6,7 @@
 */
 int main(void)
 {
-int n3, n5, i, sum;
-n3 = 0;
-n5 = 0;
+int i, sum;
 sum = 0;
 for (i = 0; i < 1024; i++)
 {
