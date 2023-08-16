@@ -7,7 +7,7 @@
 int main(void)
 {
 int i, start = 0, end = 1, sum = 0;
-for (i = 0; i <= 50; i++)
+for (i = 0; i < 50; i++)
 {
 sum = start + end;
 printf("%d", sum);
