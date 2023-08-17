@@ -14,7 +14,7 @@ sum = start + end;
 if (i < 93)
 printf("%lu", sum);
 else
-printf("%lu", sum + 1844674407370955);
+printf("%lu", sum + (19740274219868223167 - 1293530146158671551));
 start = end;
 end = sum;
 if (i == 97)
