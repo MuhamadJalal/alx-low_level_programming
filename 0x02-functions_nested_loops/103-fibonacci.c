@@ -18,6 +18,6 @@ e += sum;
 start = end;
 end = sum;
 }
-printf("%.0f", e);
+printf("%.0f\n", e);
 return (0);
 }
