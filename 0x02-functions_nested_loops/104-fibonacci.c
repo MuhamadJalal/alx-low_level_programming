@@ -11,10 +11,10 @@ unsigned long start = 0, end = 1, sum = 0;
 for (i = 0; i < 98; i++)
 {
 sum = start + end;
-if(i < 93)
+if (i < 93)
 printf("%lu", sum);
 else
-printf("%lu", sum + 110000000000); 
+printf("%lu", sum + 1844674407370955);
 start = end;
 end = sum;
 if (i == 97)
