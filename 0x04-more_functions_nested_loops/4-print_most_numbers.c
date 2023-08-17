@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_most_numbers - prints the numbers from 1 to 100, followed by a new line
+ * print_most_numbers - prints the numbers from 1 to 100
  * but for multiples of three prints Fizz instead of the number
  * and for the multiples of five prints Buzz
  * Return: void
