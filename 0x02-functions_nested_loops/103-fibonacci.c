@@ -15,7 +15,6 @@ if (sum > 4000000)
 break;
 if ((sum % 2) == 0)
 e += sum;
-printf("%lu", sum);
 start = end;
 end = sum;
 }
