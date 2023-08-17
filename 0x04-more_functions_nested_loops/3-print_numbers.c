@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
 * print_numbers - Entry point
 * Description: check the code.
@@ -8,12 +7,11 @@
 */
 void print_numbers(void)
 {
-int i = 48;
+	char c;
 
-for (i = 48; i < 58; i++)
-{
-_putchar(i);
-_putchar(10);
-}
-/*_putchar(10);*/
+	for (c = '0'; c <= '9'; c++)
+	{
+		_putchar(c);
+	}
+	_putchar('\n');
 }
