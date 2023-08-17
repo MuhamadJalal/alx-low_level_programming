@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
-* print_most_numbers - check the code.
-* Return: void.
-*/
+ * print_most_numbers - prints the numbers from 1 to 100, followed by a new line
+ * but for multiples of three prints Fizz instead of the number
+ * and for the multiples of five prints Buzz
+ * Return: void
+ */
 void print_most_numbers(void)
 {
 int i = 0;
