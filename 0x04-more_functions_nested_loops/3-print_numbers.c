@@ -10,11 +10,11 @@
 */
 void print_numbers(void)
 {
-int i = 0;
-while (i < 10)
+int i = 48;
+while (i < 59)
 {
 _putchar('0' + i);
-_putchar('\n');
 i++;
 }
+_putchar('\n');
 }
