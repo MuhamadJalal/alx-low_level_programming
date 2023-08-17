@@ -3,6 +3,7 @@
 
 /**
 * print_numbers - check the code.
+*
 * Return: void.
 */
 void print_numbers(void)
