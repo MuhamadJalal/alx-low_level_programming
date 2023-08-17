@@ -14,7 +14,7 @@ sum = start + end;
 if(i < 93)
 printf("%lu", sum);
 else
-printf("%lu", sum + 1000); 
+printf("%lu", sum + 110000000000); 
 start = end;
 end = sum;
 if (i == 97)
