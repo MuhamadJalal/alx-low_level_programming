@@ -1,5 +1,5 @@
 #include "main.h"
-11;rgb:0000/0000/0000
+
 /**
  * print_most_numbers - prints the numbers from 1 to 100
  * but for multiples of three prints Fizz instead of the number
