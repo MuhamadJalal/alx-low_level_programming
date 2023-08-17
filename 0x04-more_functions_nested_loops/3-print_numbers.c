@@ -2,7 +2,9 @@
 
 
 /**
-* print_numbers - check the code.
+* print_numbers - Entry point
+*
+* Description: check the code.
 *
 * Return: void.
 */
