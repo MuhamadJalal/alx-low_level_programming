@@ -8,7 +8,7 @@ int main(void)
 {
 float e;
 unsigned long start = 0, end = 1, sum = 0;
-while (true)
+while (1)
 {
 sum = start + end;
 if (sum > 4000000)
