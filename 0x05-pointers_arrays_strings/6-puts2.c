@@ -5,7 +5,7 @@
 * the pointer points to string needs to printed
 * @str: pointer to the variable to update
 */
-void puts2(char *str);
+void puts2(char *str)
 {
 	int i = 0;
 
