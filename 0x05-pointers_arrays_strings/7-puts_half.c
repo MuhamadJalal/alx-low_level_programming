@@ -22,7 +22,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-	  start_pont = (count / 2) - 1;
+	  start_point = (count / 2) - 1;
 	}
 
 	for (i = start_point; str[i] != '\0'; i++)
