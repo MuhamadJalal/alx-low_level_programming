@@ -18,7 +18,7 @@ void puts_half(char *str)
 
 	if ((count % 2) == 0)
 	{
-		start_point = coumt / 2;
+		start_point = count / 2;
 	}
 	else
 	{
