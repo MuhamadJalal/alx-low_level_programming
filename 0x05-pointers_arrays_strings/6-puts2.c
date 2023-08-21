@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* _puts2 - entry point
+* puts2 - entry point
 * the pointer points to string needs to printed
 * @str: pointer to the variable to update
 */
