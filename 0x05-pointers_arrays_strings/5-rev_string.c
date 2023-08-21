@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-* print_rev - entry point
+* rev_string - entry point
 * the pointer points to char needs to reversed
 * @s: pointer to the variable to reversed
 * Return: void
 */
-void print_rev(char *s)
+void rev_string(char *s)
 {
 	int i = 0, l;
 
