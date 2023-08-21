@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
 * rev_string - entry point
 * the pointer points to char needs to reversed
@@ -19,7 +18,7 @@ void rev_string(char *s)
 
 	while (s[i] != '\0')
 	{
-		i++;
+		++i;
 	}
 
 	for (l = i - 1; l >= 0; l--)
@@ -27,4 +26,5 @@ void rev_string(char *s)
 		_putchar(s[l]);
 	}
 
+	_putchar('\n');
 }
