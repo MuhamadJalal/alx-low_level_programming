@@ -1,3 +1,4 @@
+#include <stdio>
 #include "main.h"
 /**
 * print_array - entry point
@@ -12,7 +13,7 @@ void print_array(int *a, int n)
 
 	while (a[i] != '\0')
 	{
-		_putchar((a[i] % 10) + '0');
+		printf(a[i]);
 		if (i != n - 1)
 		{
 			_putchar(',');
