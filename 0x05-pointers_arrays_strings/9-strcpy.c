@@ -4,7 +4,7 @@
 * the pointer points to char needs to reversed
 * @dest: pointer points to empty string
 * @src: the source to be copied
-* Return: char
+* Return: the pointer to dest
 */
 char *_strcpy(char *dest, char *src)
 {
