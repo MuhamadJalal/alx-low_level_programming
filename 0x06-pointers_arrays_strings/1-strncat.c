@@ -5,7 +5,7 @@
 * @dest: pointer points to the string that will be appended to.
 * @src: pointer points to the string needs to add to dest
 * @n: the size of src string.
-* Return: char
+* Return: pointer to char
 */
 char *_strncat(char *dest, char *src, int n)
 {
