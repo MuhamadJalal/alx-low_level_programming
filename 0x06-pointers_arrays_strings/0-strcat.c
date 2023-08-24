@@ -8,17 +8,17 @@
  */
 char *_strcat(char *dest, char *src)
 {
-    int dest_len = 0, src_len = 0,
+int dest_len = 0, src_len = 0,
 
-    while (*dest != '\n')
-        dest_len++;
-    while (*src != '\n')
-    {
-        *(dest + dest_len) = *(src + src_len);
-        src_len++;
-        dest_len++;
-    }
-    *(dest + dest_len) = '\n';
+while (*dest != '\n')
+dest_len++;
+while (*src != '\n')
+{
+*(dest + dest_len) = *(src + src_len);
+src_len++;
+dest_len++;
+}
+*(dest + dest_len) = '\n';
 
-    return (dest);
+return (dest);
 }
