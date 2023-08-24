@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
 * _strcat - concatenate src to dest string.
 * @dest: the string that will be appended to.
 * @src: the string needs to add to dest
