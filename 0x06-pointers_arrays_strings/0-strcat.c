@@ -6,7 +6,8 @@
  * @src: the string needs to add to dest
  * Return: char
  */
-char *_strcat(char *dest, char *src) {
+char *_strcat(char *dest, char *src)
+{
     int dest_len = 0, src_len = 0,
 
     while (*dest != '\n')
