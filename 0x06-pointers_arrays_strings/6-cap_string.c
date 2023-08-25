@@ -1,36 +1,62 @@
 #include "main.h"
 
 /**
- * cap_string - capitalizes all words of a string
- *
- * @entry: This is the input string
- *
- * Return: uppercase of the string
+ *_strlen - reset number
+ *Description: This function return a length for some string
+ *@s: pointer char
+ *Return: int length
  */
 
-char *cap_string(char *entry)
+int _strlen(char *s)
 {
-	int conversion, index, count;
+	int len = 0;
 
-	char chars[] = {' ', ',', ';', '.', '!',
-			 '?', '"', '(', ')', '{', '}',  '\t', '\n', '\0'};
-	conversion = 32;
-
-	for (index = 0; entry[index] != '\0'; index++)
+	while (*s++)
 	{
-		if (entry[index] >= 'index' && entry[index] <= 'z')
+		len++;
+	}
+	return (len);
+}
+/**
+ *cap_string - changes all lowercase letters
+ *@s1: pointer parameter"
+ *Description: changes all lowercase letters
+ *Return: return pointer
+ */
+char *cap_string(char *s1)
+{
+	int i, j;
+
+	for (i = 0; i < _strlen(s1) - 1; i++)
+	{
+		if (
+			s1[i] == ' ' ||
+			s1[i] == '\t' ||
+			s1[i] == '\n' ||
+			s1[i] == ',' ||
+			s1[i] == ';' ||
+			s1[i] == '.' ||
+			s1[i] == '!' ||
+			s1[i] == '?' ||
+			s1[i] == '"' ||
+			s1[i] == '(' ||
+			s1[i] == ')' ||
+			s1[i] == '{' ||
+			s1[i] == '}' ||
+			i == 0
+		)
 		{
-			entry[index] =  entry[index] - conversion;
-		}
-		conversion = 0;
-		for (count = 0; chars[count] != '\0'; count++)
-		{
-			if (chars[count] == entry[index])
+			for (j = 'a'; j <= 'z'; j++)
 			{
-				conversion = 32;
-				break;
+				if (s1[i + 1] == j && i != 0)
+				{
+					s1[i + 1] = j - 32;
+				} else if (s1[i] == j && i == 0)
+				{
+					s1[i] = j - 32;
+				}
 			}
 		}
 	}
-	return (entry);
+	return (s1);
 }
