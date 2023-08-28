@@ -9,7 +9,8 @@
 */
 char *_strchr(char *s, char c)
 {
-
+if (*s == '\0' || c == '\0')
+return (s);
 int i, len;
 
 len = 0;
@@ -23,8 +24,8 @@ len++;
 while (i < len)
 {
 if (s[i] == c)
-return  (s[i]);
+return  (s);
 i++;
 }
-return (NULL);
+return ('\0');
 }
