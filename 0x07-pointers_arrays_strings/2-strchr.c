@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* _memcpy - copies memory area
+* _strchr - locates a character in a string
 * @s: the address of text to search in
 * @c: the char to look for
 *
