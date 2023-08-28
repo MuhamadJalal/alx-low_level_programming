@@ -9,23 +9,17 @@
 */
 char *_strchr(char *s, char c)
 {
-if (*s == '\0' || c == '\0')
+if (*s == '\0')
 return (s);
-int i, len;
-
-len = 0;
-i = 0;
-
-while (s[len] != '\0')
+while (*s)
 {
-len++;
-}
-
-while (i < len)
+if (*s == c)
 {
-if (s[i] == c)
-return  (s);
-i++;
+return (s);
 }
+s++;
+}
+if (c == '\0')
+return (s);
 return ('\0');
 }
