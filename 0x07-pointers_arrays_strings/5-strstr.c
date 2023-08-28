@@ -12,7 +12,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 int needleLength = 0, haystackLength = 0, substringLength = 0, k, j = 0, l;
-char *return_value;
+char *final_value;
 
 while (needle[needleLength] != '\0')
 {
@@ -23,14 +23,14 @@ while (haystack[haystackLength] != '\0')
 haystackLength++;
 }
 
-if (needleLength == 0) {
+if (needleLength == 0)
 return (haystack);
-}
+
 while (haystack[j] != '\0')
 {
 if (haystack[j] == needle[0])
 {
-return_value = &haystack[j];
+final_value = &haystack[j];
 l = j;
 substringLength = 0;
 for (k = 0; k < needleLength; k++)
@@ -41,7 +41,7 @@ l++;
 }
 }
 if (substringLength == needleLength)
-return (return_value);
+return (final_value);
 j++;
 }
 return ('\0');
