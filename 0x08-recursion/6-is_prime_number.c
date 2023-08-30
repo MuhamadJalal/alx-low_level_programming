@@ -37,5 +37,5 @@ int prime_recursion(int a, int b)
 		return (0);
 	}
 
-	return (prime2(a, b + 1));
+	return (prime_recursion(a, b + 1));
 }
