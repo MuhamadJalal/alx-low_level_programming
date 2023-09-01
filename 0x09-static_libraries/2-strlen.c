@@ -4,7 +4,7 @@
 * _strlen - entry point
 * the pointer points to char needs to know its length
 * @s: pointer to the variable to update
-*
+* Return: int
 */
 int _strlen(char *s)
 {
