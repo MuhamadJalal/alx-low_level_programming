@@ -21,13 +21,15 @@ int main(int argc, char *argv[])
 
 	for (; i < argc; i++)
 	{
-		if (argv[i] >= 'a' && argv[i] <= 'z')
+		if (argv[i] >= '0' && argv[i] <= '9')
+		{
+			sum += argv[i];
+		}
+		else
 		{
 			printf("Error\n");
 			return (1);
 		}
-
-		sum += argv[i];
 	}
 
 	printf("%d\n", sum);
