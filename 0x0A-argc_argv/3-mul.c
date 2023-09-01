@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "main.h"
 /**
 * main - prints its name, followed by a new line.
 *
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	printf("%d\n", argv[1] * argv[2]);
+	printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
 
 	return (0);
 }
