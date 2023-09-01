@@ -9,7 +9,7 @@
 * Return: 0 when success.
 */
 
-int main(int argc, char *argv[] __attribute__((unused)))
+int main(int argc __attribute__((unused))، char *argv[])
 {
        	printf("%u\n", argc - 1);
 	return (0);
