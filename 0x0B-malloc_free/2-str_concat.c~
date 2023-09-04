@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
+
+/**
+* str_concat - concatenates two strings
+* which contains a copy of the string given as a parameter.
+*
+* @s1: the first string which will be concatenated.
+* @s2: the second string which will be concatenated.
+*
+* Return: char - pointer to an array
+*/
+char *str_concat(char *s1, char *s2)
+{
+	char *string;
+	int i = 0, len = 0;
+
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+
+	string = malloc(sizeof(string) * len);
+
+
+	for (; i <= len; i++)
+	{
+		if (string == NULL)
+		{
+			return (NULL);
+		}
+
+		string[i] = str[i];
+	}
+
+
+	return (string);
+}
