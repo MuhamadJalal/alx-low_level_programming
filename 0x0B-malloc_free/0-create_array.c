@@ -3,13 +3,13 @@
 #include "main.h"
 
 /**
-* create_array: creates an array of chars,
+* create_array - creates an array of chars,
 * and initializes it with a specific char.
 *
 * @size: the return pointer array size
 * @c: the return array content
 *
-* Return: pointer to an array
+* Return: char - pointer to an array
 */
 char *create_array(unsigned int size, char c)
 {
