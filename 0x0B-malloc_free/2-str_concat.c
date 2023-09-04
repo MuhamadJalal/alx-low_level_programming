@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "main.h"
 
+int _strlen(char *s);
+char *_strncat(char *dest, char *src, int n);
+
 /**
 * str_concat - concatenates two strings
 * which contains a copy of the string given as a parameter.
