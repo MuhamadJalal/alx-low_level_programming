@@ -24,12 +24,11 @@ char *_strdup(char *str)
 	{
 		len++;
 	}
-	len++;
 
 	string = malloc(sizeof(string) * len);
 
 
-	for (; i < len; i++)
+	for (; i <= len; i++)
 	{
 		if (string == NULL)
 		{
