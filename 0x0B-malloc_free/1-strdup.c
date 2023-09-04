@@ -20,10 +20,10 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	for (; str[len] != '\0'; len++)
+	while (str[len] != '\0')
 	{
+		len++;
 	}
-	len++;
 	len++;
 
 	string = malloc(sizeof(string) * len);
