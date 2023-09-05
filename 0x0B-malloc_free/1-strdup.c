@@ -3,6 +3,22 @@
 #include "main.h"
 
 /**
+ * _strlen - return length of a string
+ *
+ * @s: char type
+ * Return:  length of string
+ */
+int _strlen(char *s)
+{
+	int a;
+
+	for (a = 0; s[a] != '\0'; a++)
+	{
+
+	}
+	return (a);
+}
+/**
 * _strdup - returns a pointer to a newly allocated space in memory
 * which contains a copy of the string given as a parameter.
 *
@@ -19,11 +35,8 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	len++;
+
+	len = _strlen(str);
 
 	string = malloc(sizeof(string) * len);
 
