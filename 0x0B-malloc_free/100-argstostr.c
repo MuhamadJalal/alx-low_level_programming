@@ -8,43 +8,39 @@
  * @av: pointer to array
  * Return: arguments as strings
  */
-
 char *argstostr(int ac, char **av)
 {
-	int size, count, count1, count2 = 0;
-	char *ptr;
+	int c, c1;
+	int a = 0;
+	int str = 0;
+	char *d;
 
 	if (ac == 0 || av == NULL)
-	{
 		return (NULL);
+
+	for (c = 0 ; c < ac ; c++)
+	{
+		for (c1 = 0 ; av[c][c1] != '\0' ; c1++)
+		{
+			str++;
+		}
+		str++;
 	}
 
-	for (count = 0; count < ac; count++)
-	{
-		for (count1 = 0; av[count][count1] != '\0'; count1++)
-		{
-			size += 1;
-		}
-		size += 1;
-	}
-	size += 1;
+	d = malloc(sizeof(char) * str);
 
-	ptr = malloc(sizeof(char) * size);
-	if (ptr == NULL)
-	{
-		free(ptr);
+	if (d == NULL)
 		return (NULL);
-	}
-	for (count = 0; count < ac; count++)
+
+	for (c = 0 ; c < ac ; c++)
 	{
-		for (count1 = 0; av[count][count1] != '\0'; count1++)
+		for (c1 = 0 ; av[c][c1] != '\0' ; c1++)
 		{
-			ptr[count2] = av[count][count1];
-			count2++;
+			d[a] = av[c][c1];
+			a++;
 		}
-		ptr[count2] = '\n';
-		count2++;
+		d[a] = '\n';
+		a++;
 	}
-	ptr[count2] = '\0';
-	return (ptr);
+	return (d);
 }
