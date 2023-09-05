@@ -1,46 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
-
+#include <stdlib.h>
 /**
- * *argstostr - convert arguments on command line to strings
- * @ac: int type
- * @av: pointer to array
- * Return: arguments as strings
+ * argstostr - main entry
+ * @ac: int input
+ * @av: double pointer array
+ * Return: 0
  */
 char *argstostr(int ac, char **av)
 {
-	int c, c1;
-	int a = 0;
-	int str = 0;
-	char *d;
+	int i, n, r = 0, l = 0;
+	char *str;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (c = 0 ; c < ac ; c++)
+	for (i = 0; i < ac; i++)
 	{
-		for (c1 = 0 ; av[c][c1] != '\0' ; c1++)
-		{
-			str++;
-		}
-		str++;
+		for (n = 0; av[i][n]; n++)
+			l++;
 	}
+	l += ac;
 
-	d = malloc(sizeof(char) * str);
-
-	if (d == NULL)
+	str = malloc(sizeof(char) * l + 1);
+	if (str == NULL)
 		return (NULL);
-
-	for (c = 0 ; c < ac ; c++)
+	for (i = 0; i < ac; i++)
 	{
-		for (c1 = 0 ; av[c][c1] != '\0' ; c1++)
-		{
-			d[a] = av[c][c1];
-			a++;
-		}
-		d[a] = '\n';
-		a++;
+	for (n = 0; av[i][n]; n++)
+	{
+		str[r] = av[i][n];
+		r++;
 	}
-	return (d);
+	if (str[r] == '\0')
+	{
+		str[r++] = '\n';
+	}
+	}
+	return (str);
 }
