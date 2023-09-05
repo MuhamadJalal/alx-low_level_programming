@@ -29,7 +29,7 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	char *string;
-	int i = 0, len = 0;
+	int i = 0, len;
 
 	if (str == NULL)
 	{
@@ -40,8 +40,7 @@ char *_strdup(char *str)
 
 	string = malloc(sizeof(string) * len);
 
-
-	for (; i <= len; i++)
+	for (len = 0; i <= len; i++)
 	{
 		if (string == NULL)
 		{
