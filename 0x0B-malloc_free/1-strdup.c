@@ -28,25 +28,26 @@ int _strlen(char *s)
 */
 char *_strdup(char *str)
 {
-	char *string;
-	int i = 0, len;
+	char *ptr;
+	int size;
+	int x;
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+	size = _strlen(str) + 1;
+	ptr = malloc(size * sizeof(char));
 
-	len = _strlen(str);
-
-	string = malloc(sizeof(string) * len);
-
-	for (len = 0; i <= len; i++)
+	x = 0;
+	while (x < size)
 	{
-		if (string == NULL)
+		if (ptr == NULL)
 		{
 			return (NULL);
-		}
-		string[i] = str[i];
 	}
-	return (string);
+		ptr[x] = str[x];
+		x++;
+	}
+	return (ptr);
 }
