@@ -12,7 +12,6 @@
 */
 char *_strdup(char *str)
 {
-{
 	char *string;
 	int len;
 	int i;
