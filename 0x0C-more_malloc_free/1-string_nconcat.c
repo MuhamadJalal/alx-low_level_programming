@@ -13,7 +13,6 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *p;
-	char txt;
 	unsigned int size_s1 = 0, size_s2 = 0, i = 0, j = 0;
 
 	while (s1 && s1[size_s1] != '\0')
