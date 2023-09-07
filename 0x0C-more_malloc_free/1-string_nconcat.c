@@ -14,40 +14,39 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *p;
 	char txt;
-	int size_s1;
-	int i;
+	int size_s1, size_s2;
+	int i, j = 0;
 
 	if (s1 == '\0' && s2 == '\0')
-	{
 		return ('\0');
-	}
 
 	if (n == 0)
-	{
 		return (s1);
-	}
-	if (s1 == '\0')
-	{
-		size_s1 = 1;
-	}
-	else
-	{
-		size_s1 = strlen(s1) + 1;
-	}
 
-	p = malloc((sizeof(char) * size_s1) + n);
+	while (s1 && s1[size_s1] != '\0')
+		size_s1++;
+
+	while (s2 && s2[size_s2] != '\0')
+		size_s2++;
+
+	if (n < size_s2)
+		p = malloc(sizeof(char) * (size_s1 + n + 1));
+	else
+		p = malloc(sizeof(char) * (size_s1 + size_s2 + 1));
 
 	if (p == NULL)
-	{
 		return (NULL);
-	}
 
-	for (i = 0; i < n && s2[i] != '\0'; i++)
-	{
-		txt += s2[i];
-	}
+	for (i = 0; i < size_s1; i++)
+		p[i] = s1[i];
 
-	p = strcpy(s1, txt);
+	while (n < size_s2 && i < (size_s1 + n))
+		p[i++] = s2[j++];
+
+	while (n >= size_s2 && i < (size_s1 + size_s2))
+		p[i++] = s2[j++];
+
+	p[i] = '\0';
 
 	return (p);
 }
