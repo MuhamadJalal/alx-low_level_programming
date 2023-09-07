@@ -17,9 +17,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	int size_s1, size_s2;
 	int i, j = 0;
 
-	if (s1 == '\0' && s2 == '\0')
-		return ('\0');
-
 	while (s1 && s1[size_s1] != '\0')
 		size_s1++;
 
