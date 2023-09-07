@@ -20,9 +20,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s1 == '\0' && s2 == '\0')
 		return ('\0');
 
-	if (n == 0)
-		return (s1);
-
 	while (s1 && s1[size_s1] != '\0')
 		size_s1++;
 
