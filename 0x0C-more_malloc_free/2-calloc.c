@@ -12,17 +12,19 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p;
-	unsigned int i = 0;
+	unsigned int i = 0, full_len = 0;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	p = malloc(nmemb * size);
+	full_len = nmemb * size;
 
-	if (!p)
+	p = malloc(full_len);
+
+	if (p == NULL)
 		return (NULL);
 
-	while (i < (nmemb * size))
+	while (i < full_len)
 	{
 		p[i] = 0;
 		i++;
