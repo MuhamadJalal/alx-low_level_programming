@@ -1,5 +1,6 @@
+#include <stdio.h>
 #include <stdlib.h>
-#incude "dog.h"
+#include "dog.h"
 
 /**
 * free_dog - frees dogs
