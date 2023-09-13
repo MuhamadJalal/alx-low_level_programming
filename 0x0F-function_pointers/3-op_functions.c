@@ -29,14 +29,14 @@ int op_sub(int a, int b)
 /**
 * op_mul - check the code.
 *
-* @c: is the char to test
-* @x: another num to multible with.
+* @a: is the char to test
+* @b: another num to multible with.
 *
 * Return: int.
 */
-int op_mul(int c, int x)
+int op_mul(int a, int b)
 {
-	return (c * x);
+	return (a * b);
 }
 
 /**
