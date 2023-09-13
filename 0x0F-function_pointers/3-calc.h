@@ -1,5 +1,5 @@
-#ifndef function_pointers
-#define function_pointers
+#ifndef CALC_H
+#define CALC_H
 
 /**
  * struct op - Struct op

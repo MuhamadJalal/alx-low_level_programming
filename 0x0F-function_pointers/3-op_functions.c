@@ -7,62 +7,55 @@ int op_div(int a, int b);
 int op_mod(int a, int b);
 
 /**
-* op_add - sum a and b
-*
-* @a: first numbe
-* @b: second number
-*
-* Return: int.
-*/
+ * op_add - Returns the sum of two numbers.
+ * @a: The first number.
+ * @b: The second number.
+ *
+ * Return: The sum of a and b.
+ */
 int op_add(int a, int b)
 {
 	return (a + b);
 }
-
 /**
-* op_sub - sub two numbers
-*
-* @a: first number
-* @b: second number
-*
-* Return: int.
-*/
+ * op_sub - Returns the difference of two numbers.
+ * @a: The first number.
+ * @b: The second number.
+ *
+ * Return: The difference of a and b.
+ */
 int op_sub(int a, int b)
 {
 	return (a - b);
 }
-
 /**
-* op_mul - check the code.
-*
-* @a: is the char to test
-* @b: another num to multible with.
-*
-* Return: int.
-*/
+ * op_mul - Returns the product of two numbers.
+ * @a: The first number.
+ * @b: The second number.
+ *
+ * Return: The product of a and b.
+ */
 int op_mul(int a, int b)
 {
 	return (a * b);
 }
-
 /**
- * op_div - division of two numbers.
- * @a: first number.
- * @b: second number.
+ * op_div - Returns the division of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * Return: int
+ * Return: The quotient of a and b.
  */
 int op_div(int a, int b)
 {
 	return (a / b);
 }
-
 /**
- * op_mod - remainder of the division of two numbers.
- * @a: first number.
- * @b: second number.
+ * op_mod - Returns the remainder of the division of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * Return: int
+ * Return: The remainder of the division of a by b.
  */
 int op_mod(int a, int b)
 {
