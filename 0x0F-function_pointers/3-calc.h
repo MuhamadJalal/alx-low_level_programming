@@ -1,6 +1,18 @@
 #ifndef function_pointers
 #define function_pointers
 
+/**
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
+ */
+typedef struct op
+{
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
+
 int _putchar(char c);
 int op_add(int a, int b);
 int op_sub(int a, int b);
