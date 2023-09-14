@@ -28,8 +28,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 				printf("%s", (char *) separator);
 		}
 
-		printf("\n");
-
 		va_end(vl);
 	}
+
+	printf("\n");
 }
