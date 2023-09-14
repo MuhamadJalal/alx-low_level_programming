@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdarg.h>
+11;rgb:0000/0000/0000#include <stdarg.h>
 #include "variadic_functions.h"
 
 /**
@@ -25,11 +25,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		{
 			c = va_arg(vl, char *);
 
-			if (c == NULL || *c == '\0')
+			if (c == NULL)
 				printf("(nil)");
 			else
 				printf("%s", c);
-			if (separator != NULL && i != (n - 1))
+			if (separator != NULL && *separator != 0 && i != (n - 1))
 				printf("%s", separator);
 		}
 
