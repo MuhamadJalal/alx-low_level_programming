@@ -28,14 +28,12 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			if (c == NULL || *c == '\0')
 				c = "(nil)";
 
-			if (separator == NULL || *separator == 0 || i == (n - 1))
-				printf("%s", c);
-			else
-				printf("%s%s", c, separator);
+			printf("%s", c);
+			if (separator != NULL && *separator == 0 && i == (n - 1))
+				printf("%s", separator);
 		}
-
-		printf("\n");
 
 		va_end(vl);
 	}
+	printf("\n");
 }
