@@ -12,9 +12,9 @@ size_t print_list(const list_t *h)
 	{
 
 		if (h->str)
-			prinf("[%zu] %s\n", list_len, h->str);
+			printf("[%zu] %s\n", list_len, h->str);
 		else
-			prinf("[%zu] (nil)\n", list_len);
+			printf("[%zu] (nil)\n", list_len);
 
 
 		list_len++;
