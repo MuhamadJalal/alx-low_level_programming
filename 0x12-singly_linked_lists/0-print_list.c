@@ -10,13 +10,15 @@ size_t print_list(const list_t *h)
 
 	while (h)
 	{
-		if (h->str)
-			prinf("[%u] %s\n", list_len, h->str);
-		else
-			prinf("[0] (nil)\n");
 
-		h = h->next;
+		if (h->str)
+			prinf("[%zu] %s\n", list_len, h->str);
+		else
+			prinf("[%zu] (nil)\n", list_len);
+
+
 		list_len++;
+		h = h->next;
 	}
 
 	return (list_len);
