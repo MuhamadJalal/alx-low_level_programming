@@ -1,5 +1,5 @@
 #include <files.h>
-0;276;0c/**
+/**
  * print_list - prints all the elements of a list_t list
  * @h: a struct input
  * Return: int.
