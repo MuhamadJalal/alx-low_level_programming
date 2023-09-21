@@ -12,7 +12,7 @@ size_t print_list(const list_t *h)
 	{
 
 		if (h->str)
-			printf("[%zu] %s\n", strlen(h->str), h->str);
+			printf("[%zu] %s\n", h->len, h->str);
 		else
 			printf("[0] (nil)\n");
 
