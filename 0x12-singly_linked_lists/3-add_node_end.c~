@@ -1,0 +1,80 @@
+#include "lists.h"
+
+/**
+ * *add_node_end - adds a new node at the end of a list_t list.
+ * @h: a struct input
+ * Return: int.
+ */
+list_t *add_node_end(list_t **head, const char *str)
+{
+	size_t list_len = 0;
+
+	while (h)
+	{
+
+		if (h->str != NULL)
+			printf("[%d] %s\n", h->len, h->str);
+		else
+			printf("[0] (nil)\n");
+
+
+		list_len++;
+		h = h->next;
+	}
+
+	return (list_len);
+}
+#include "lists.h"
+
+/**
+ * *add_node - adds a new node at the beginning of a list_t list
+ * @str: needs to be duplicated
+ * @head: a struct input
+ * Return: the address of the new element
+ */
+list_t *add_node(list_t **head, const char *str)
+{
+	list_t *new_list_t;
+	unsigned int len = 0;
+
+	while (str[len])
+		len++;
+
+	new_list_t = malloc(sizeof(list_t));
+
+	if (!new_list_t)
+		return (NULL);
+
+	new_list_t->str = strdup(str);
+	new_list_t->len = len;
+	new_list_t->next = (*head);
+	(*head) = new_list_t;
+
+	return (*head);
+}
+#include "lists.h"
+
+/**
+ * print_list - prints all the elements of a list_t list
+ * @h: a struct input
+ * Return: int.
+ */
+size_t print_list(const list_t *h)
+{
+	size_t list_len = 0;
+
+	while (h)
+	{
+
+		if (h->str != NULL)
+			printf("[%d] %s\n", h->len, h->str);
+		else
+			printf("[0] (nil)\n");
+
+
+		list_len++;
+		h = h->next;
+	}
+
+	return (list_len);
+}
