@@ -1,3 +1,4 @@
+#include "lists.h"
 /**
 * first - function that prints "text"
 * before the main function is executed
