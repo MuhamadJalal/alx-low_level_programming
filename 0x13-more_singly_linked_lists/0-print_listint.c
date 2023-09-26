@@ -3,7 +3,7 @@
 /**
  * print_listint - prints all the elements of a list_t list
  * @h: a struct input
- * Return: int.
+ * Return: size_t
  */
 size_t print_listint(const listint_t *h)
 {
