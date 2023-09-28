@@ -8,14 +8,27 @@
  */
 void print_binary(unsigned long int n)
 {
+	unsigned long int representer;
+	int i, current = 0;
+
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
 	}
 
-	if (n > 1)
-		print_binary(n >> 1);
+	for (i = 58; i >= 0; i--)
+	{
+		representer = n >> i;
 
-	_putchar(48 + (n % 2));
+		if (representer & 1)
+		{
+			_putchar('1');
+			current++;
+		}
+		else if (current)
+			_putchar('0');
+	}
+	if (!current)
+		_putchar('0');
 }
