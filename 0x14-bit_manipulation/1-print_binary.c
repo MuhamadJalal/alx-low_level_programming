@@ -17,7 +17,7 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	for (i = 60; i >= 0; i--)
+	for (i = 63; i >= 0; i--)
 	{
 		representer = n >> i;
 
