@@ -1,131 +1,131 @@
-#include <elf.h>
 #include "main.h"
 
-
 /**
- * print_osabi - Prints the OS/ABI of an ELF header.
- * @e_ident: A pointer to an array containing the ELF version.
+ * elf_version - print ELF version
+ * @buffer: the ELF header
  */
-void print_osabi(unsigned char *e_ident)
+void elf_version(const unsigned char *buffer)
 {
-	printf("  OS/ABI:                            ");
+	printf("  %-34s %u", "Version:", buffer[EI_VERSION]);
 
-	switch (e_ident[EI_OSABI])
-	{
-	case ELFOSABI_NONE:
-		printf("UNIX - System V\n");
-		break;
-	case ELFOSABI_HPUX:
-		printf("UNIX - HP-UX\n");
-		break;
-	case ELFOSABI_NETBSD:
-		printf("UNIX - NetBSD\n");
-		break;
-	case ELFOSABI_LINUX:
-		printf("UNIX - Linux\n");
-		break;
-	case ELFOSABI_SOLARIS:
-		printf("UNIX - Solaris\n");
-		break;
-	case ELFOSABI_IRIX:
-		printf("UNIX - IRIX\n");
-		break;
-	case ELFOSABI_FREEBSD:
-		printf("UNIX - FreeBSD\n");
-		break;
-	case ELFOSABI_TRU64:
-		printf("UNIX - TRU64\n");
-		break;
-	case ELFOSABI_ARM:
-		printf("ARM\n");
-		break;
-	case ELFOSABI_STANDALONE:
-		printf("Standalone App\n");
-		break;
-	default:
-		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
-	}
-}
-
-/**
- * print_abi - Prints the ABI version of an ELF header.
- * @e_ident: A pointer to an array containing the ELF ABI version.
- */
-void print_abi(unsigned char *e_ident)
-{
-	printf("  ABI Version:                       %d\n",
-	       e_ident[EI_ABIVERSION]);
-}
-
-/**
- * print_type - Prints the type of an ELF header.
- * @e_type: The ELF type.
- * @e_ident: A pointer to an array containing the ELF class.
- */
-void print_type(unsigned int e_type, unsigned char *e_ident)
-{
-	if (e_ident[EI_DATA] == ELFDATA2MSB)
-		e_type >>= 8;
-
-	printf("  Type:                              ");
-
-	switch (e_type)
-	{
-	case ET_NONE:
-		printf("NONE (None)\n");
-		break;
-	case ET_REL:
-		printf("REL (Relocatable file)\n");
-		break;
-	case ET_EXEC:
-		printf("EXEC (Executable file)\n");
-		break;
-	case ET_DYN:
-		printf("DYN (Shared object file)\n");
-		break;
-	case ET_CORE:
-		printf("CORE (Core file)\n");
-		break;
-	default:
-		printf("<unknown: %x>\n", e_type);
-	}
-}
-
-/**
- * print_entry - Prints the entry point of an ELF header.
- * @e_entry: The address of the ELF entry point.
- * @e_ident: A pointer to an array containing the ELF class.
- */
-void print_entry(unsigned long int e_entry, unsigned char *e_ident)
-{
-	printf("  Entry point address:               ");
-
-	if (e_ident[EI_DATA] == ELFDATA2MSB)
-	{
-		e_entry = ((e_entry << 8) & 0xFF00FF00) |
-			  ((e_entry >> 8) & 0xFF00FF);
-		e_entry = (e_entry << 16) | (e_entry >> 16);
-	}
-
-	if (e_ident[EI_CLASS] == ELFCLASS32)
-		printf("%#x\n", (unsigned int)e_entry);
-
+	if (buffer[EI_VERSION] == EV_CURRENT)
+		printf(" (current)\n");
 	else
-		printf("%#lx\n", e_entry);
+		printf("\n");
 }
 
 /**
- * close_elf - Closes an ELF file.
- * @elf: The file descriptor of the ELF file.
- *
- * Description: If the file cannot be closed - exit code 98.
+ * elf_osabi - print ELF OS/ABI
+ * @buffer: the ELF header
  */
-void close_elf(int elf)
+void elf_osabi(const unsigned char *buffer)
 {
-	if (close(elf) == -1)
+	const char *os_table[19] = {
+		"UNIX - System V",
+		"UNIX - HP-UX",
+		"UNIX - NetBSD",
+		"UNIX - GNU",
+		"<unknown: 4>",
+		"<unknown: 5>",
+		"UNIX - Solaris",
+		"UNIX - AIX",
+		"UNIX - IRIX",
+		"UNIX - FreeBSD",
+		"UNIX - Tru64",
+		"Novell - Modesto",
+		"UNIX - OpenBSD",
+		"VMS - OpenVMS",
+		"HP - Non-Stop Kernel",
+		"AROS",
+		"FenixOS",
+		"Nuxi CloudABI",
+		"Stratus Technologies OpenVOS"
+	};
+
+	printf("  %-34s ", "OS/ABI:");
+
+	if (buffer[EI_OSABI] < 19)
+		printf("%s\n", os_table[(unsigned int) buffer[EI_OSABI]]);
+	else
+		printf("<unknown: %x>\n", buffer[EI_OSABI]);
+}
+
+/**
+ * elf_abivers - print ELF ABI version
+ * @buffer: the ELF header
+ */
+void elf_abivers(const unsigned char *buffer)
+{
+	printf("  %-34s %u\n", "ABI Version:", buffer[EI_ABIVERSION]);
+}
+
+/**
+ * elf_type - print ELF type
+ * @buffer: the ELF header
+ * @big_endian: endianness (big endian if non-zero)
+ */
+void elf_type(const unsigned char *buffer, int big_endian)
+{
+	char *type_table[5] = {
+		"NONE (No file type)",
+		"REL (Relocatable file)",
+		"EXEC (Executable file)",
+		"DYN (Shared object file)",
+		"CORE (Core file)"
+	};
+	unsigned int type;
+
+	printf("  %-34s ", "Type:");
+
+	if (big_endian)
+		type = 0x100 * buffer[16] + buffer[17];
+	else
+		type = 0x100 * buffer[17] + buffer[16];
+
+	if (type < 5)
+		printf("%s\n", type_table[type]);
+	else if (type >= ET_LOOS && type <= ET_HIOS)
+		printf("OS Specific: (%4x)\n", type);
+	else if (type >= ET_LOPROC && type <= ET_HIPROC)
+		printf("Processor Specific: (%4x)\n", type);
+	else
+		printf("<unknown: %x>\n", type);
+}
+
+/**
+ * elf_entry - print entry point address
+ * @buffer: string containing the entry point address
+ * @bit_mode: bit mode (32 or 64)
+ * @big_endian: endianness (big endian if non-zero)
+ */
+void elf_entry(const unsigned char *buffer, size_t bit_mode, int big_endian)
+{
+	int address_size = bit_mode / 8;
+
+	printf("  %-34s 0x", "Entry point address:");
+
+	if (big_endian)
 	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't close fd %d\n", elf);
-		exit(98);
+		while (address_size && !*(buffer))
+			--address_size, ++buffer;
+
+		printf("%x", *buffer & 0xff);
+
+		while (--address_size > 0)
+			printf("%02x", *(++buffer) & 0xff);
 	}
+	else
+	{
+		buffer += address_size;
+
+		while (address_size && !*(--buffer))
+			--address_size;
+
+		printf("%x", *buffer & 0xff);
+
+		while (--address_size > 0)
+			printf("%02x", *(--buffer) & 0xff);
+	}
+
+	printf("\n");
 }
