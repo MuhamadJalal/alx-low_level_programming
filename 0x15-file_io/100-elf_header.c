@@ -1,48 +1,72 @@
-#include "main.h"
+#include <elf.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void check_elf(unsigned char *e_ident);
+void print_magic(unsigned char *e_ident);
+void print_class(unsigned char *e_ident);
+void print_data(unsigned char *e_ident);
+void print_version(unsigned char *e_ident);
+void print_abi(unsigned char *e_ident);
+void print_osabi(unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
+void print_entry(unsigned long int e_entry, unsigned char *e_ident);
+void close_elf(int elf);
 
 /**
- * main - copy a file's contents to another file
- * @argc: the argument count
- * @argv: the argument values
+ * main - Displays the information contained in the
+ * ELF header at the start of an ELF file.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
  *
- * Return: Always 0
+ * Return: 0 on success.
+ *
+ * Description: If the file is not an ELF File or
+ * the function fails - exit code 98.
  */
-int main(int argc, const char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	unsigned char buffer[18];
-	unsigned int bit_mode;
-	int big_endian;
-	int fd;
+	Elf64_Ehdr *header;
+	int o, r;
 
-	if (argc != 2)
+	o = open(argv[1], O_RDONLY);
+	if (o == -1)
 	{
-		write(STDERR_FILENO, "Usage: elf_header elf_filename\n", 31);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
+	}
+	header = malloc(sizeof(Elf64_Ehdr));
+	if (header == NULL)
+	{
+		close_elf(o);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
+	}
+	r = read(o, header, sizeof(Elf64_Ehdr));
+	if (r == -1)
+	{
+		free(header);
+		close_elf(o);
+		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
 
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-	{
-		write(STDERR_FILENO, "Error: Can't read from file\n", 28);
-		exit(98);
-	}
+	check_elf(header->e_ident);
+	printf("ELF Header:\n");
+	print_magic(header->e_ident);
+	print_class(header->e_ident);
+	print_data(header->e_ident);
+	print_version(header->e_ident);
+	print_osabi(header->e_ident);
+	print_abi(header->e_ident);
+	print_type(header->e_type, header->e_ident);
+	print_entry(header->e_entry, header->e_ident);
 
-	_read(fd, (char *) buffer, 18);
-
-	elf_magic(buffer);
-	bit_mode = elf_class(buffer);
-	big_endian = elf_data(buffer);
-	elf_version(buffer);
-	elf_osabi(buffer);
-	elf_abivers(buffer);
-	elf_type(buffer, big_endian);
-
-	lseek(fd, 24, SEEK_SET);
-	_read(fd, (char *) buffer, bit_mode / 8);
-
-	elf_entry(buffer, bit_mode, big_endian);
-
-	_close(fd);
-
+	free(header);
+	close_elf(o);
 	return (0);
 }
